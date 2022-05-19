@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/teal_700"
-    android:textAlignment="textStart"
-    tools:context=".loginActivity">
+    tools:context=".SignupActivity">
 
     <androidx.cardview.widget.CardView
         android:layout_width="373dp"
@@ -46,6 +45,18 @@
                 android:textSize="24sp" />
 
             <EditText
+                android:id="@+id/nameTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/textbox"
+                android:drawableLeft="@drawable/person"
+                android:ems="10"
+                android:hint=" İsim Soyisim"
+                android:inputType="textPersonName"
+                android:padding="10dp" />
+
+            <EditText
                 android:id="@+id/emailInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -71,15 +82,6 @@
                 android:padding="10dp" />
 
             <Button
-                android:id="@+id/loginBtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/button_style"
-                android:padding="13dp"
-                android:text="GİRİŞ" />
-
-            <Button
                 android:id="@+id/createBtn"
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="match_parent"
@@ -90,6 +92,15 @@
                 android:padding="13dp"
                 android:text="YENİ BİR HESAP OLUŞTUR"
                 android:textColor="#FFF3F3" />
+
+            <Button
+                android:id="@+id/loginBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_style"
+                android:padding="13dp"
+                android:text="Zaten Bir Hesabın Var mı ?" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
