@@ -9,7 +9,7 @@
     tools:context=".loginActivity">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="373dp"
+        android:layout_width="0dp"
         android:layout_height="413dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
