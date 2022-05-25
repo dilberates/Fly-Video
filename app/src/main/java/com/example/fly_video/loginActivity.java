@@ -38,6 +38,7 @@ public class loginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                         Toast.makeText(loginActivity.this,"Giriş Yapıldı.",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(loginActivity.this,DashBoardActivity.class));
                         }else{
                             Toast.makeText(loginActivity.this,task.getException().getLocalizedMessage(),Toast.LENGTH_SHORT).show();
                         }
