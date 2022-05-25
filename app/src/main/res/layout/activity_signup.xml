@@ -4,26 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/teal_700"
+    android:background="@drawable/purple2"
+    app:circularflow_defaultRadius="150dp"
+    app:circularflow_radiusInDP="150dp"
     tools:context=".SignupActivity">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:background="@color/white"
+        app:cardCornerRadius="30dp"
+        app:circularflow_radiusInDP="160dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.454">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
             android:orientation="vertical">
 
             <ImageView
@@ -32,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                app:srcCompat="@drawable/videocalling" />
+                app:srcCompat="@drawable/videocall" />
 
             <TextView
                 android:id="@+id/textView"
@@ -49,7 +54,7 @@
                 android:id="@+id/nameTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/textbox"
                 android:drawableLeft="@drawable/person"
                 android:ems="10"
@@ -61,6 +66,7 @@
                 android:id="@+id/emailInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/textbox"
                 android:drawableLeft="@drawable/email"
                 android:drawablePadding="15dp"
@@ -87,9 +93,9 @@
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/button_style"
-                android:backgroundTint="@color/darkGreen"
+                android:backgroundTint="#9C27B0"
                 android:padding="13dp"
                 android:text="YENİ BİR HESAP OLUŞTUR"
                 android:textColor="#FFF3F3" />
