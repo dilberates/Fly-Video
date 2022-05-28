@@ -29,7 +29,7 @@ public class loginActivity extends AppCompatActivity {
         initCompenent();
         auth=FirebaseAuth.getInstance();
         dialog=new ProgressDialog(this);
-        dialog.setMessage("Litfen Bekleyiniz...");
+        dialog.setMessage("Lütfen Bekleyiniz...");
 
 
         login.setOnClickListener(new View.OnClickListener() {

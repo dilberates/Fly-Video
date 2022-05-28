@@ -8,6 +8,10 @@ plugins {
 android {
     compileSdk 32
 
+    dataBinding {
+        enabled = true
+    }
+
     defaultConfig {
         applicationId "com.example.fly_video"
         minSdk 21
@@ -17,6 +21,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
 
     buildTypes {
         release {
@@ -43,6 +48,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'com.google.firebase:firebase-analytics:17.5.0'
     implementation 'com.google.firebase:firebase-firestore:8.0.1'
+    implementation 'com.google.firebase:firebase-database:19.2.0'
     implementation('org.jitsi.react:jitsi-meet-sdk:2.9.0') { transitive = true }
 }
 apply plugin: 'com.google.gms.google-services'
