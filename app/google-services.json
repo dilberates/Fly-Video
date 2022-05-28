@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "477940878970",
+    "project_id": "flyvideo-a5ed2",
+    "storage_bucket": "flyvideo-a5ed2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:477940878970:android:1e026b603445f4845375c3",
+        "android_client_info": {
+          "package_name": "com.example.fly_video"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "477940878970-n2o6u166c4057nr3l73dgskd4jc0qr44.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeXt_q6pkF2ipfSGpRgI_sBX9hPK51R4A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "477940878970-n2o6u166c4057nr3l73dgskd4jc0qr44.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
