@@ -45,7 +45,7 @@ public class DashBoardActivity extends AppCompatActivity  {
     Button join,share;
     CardView mainCardView,settingCardView;
     BottomNavigationView navigationView;
-    Fragment settingFragment;
+    Fragment settingFragment ,mainFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,18 +81,14 @@ public class DashBoardActivity extends AppCompatActivity  {
                                 }).show();
                         break;
                     case R.id.settings:
-                        settingCardView.setVisibility(View.VISIBLE);
-                        mainCardView.setVisibility(View.INVISIBLE);
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.body,settingFragment).commit();
-                        ref= FirebaseDatabase.getInstance().getReference().child("Users").child(user.getProviderId());
-
 
                         break;
 
                     case R.id.mainPage:
-                        mainCardView.setVisibility(View.VISIBLE);
-                        settingCardView.setVisibility(View.INVISIBLE);
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.body,mainFragment).commit();
 
                         break;
 
@@ -151,6 +147,7 @@ public class DashBoardActivity extends AppCompatActivity  {
         share=findViewById(R.id.shareBtn);
         navigationView=findViewById(R.id.bottomNavigationView);
         settingFragment=new SettingsFragment();
+        mainFragment=new mainFragment();
         mainCardView=findViewById(R.id.cardViewMain);
         settingCardView=findViewById(R.id.cardViewSetting);
         name=findViewById(R.id.fullNameTxt);
