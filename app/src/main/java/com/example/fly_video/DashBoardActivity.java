@@ -3,7 +3,6 @@ package com.example.fly_video;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-import androidx.databinding.adapters.ActionMenuViewBindingAdapter;
 import androidx.fragment.app.Fragment;
 
 
@@ -19,12 +18,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 
-
+import com.example.fly_video.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.jitsi.meet.sdk.JitsiMeet;
@@ -46,6 +44,7 @@ public class DashBoardActivity extends AppCompatActivity  {
     CardView mainCardView,settingCardView;
     BottomNavigationView navigationView;
     Fragment settingFragment ,mainFragment;
+    ActivityMainBinding
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +70,7 @@ public class DashBoardActivity extends AppCompatActivity  {
                                 .setPositiveButton("Evet", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
-                                        startActivity(new Intent(DashBoardActivity.this,loginActivity.class));
+                                        startActivity(new Intent(DashBoardActivity.this, LoginActivity.class));
                                     }
                                 }).setNegativeButton("Hayır", new DialogInterface.OnClickListener() {
                                     @Override
@@ -147,7 +146,7 @@ public class DashBoardActivity extends AppCompatActivity  {
         share=findViewById(R.id.shareBtn);
         navigationView=findViewById(R.id.bottomNavigationView);
         settingFragment=new SettingsFragment();
-        mainFragment=new mainFragment();
+        mainFragment=new MainFragment();
         mainCardView=findViewById(R.id.cardViewMain);
         settingCardView=findViewById(R.id.cardViewSetting);
         name=findViewById(R.id.fullNameTxt);

@@ -55,7 +55,7 @@ public class SignupActivity extends AppCompatActivity {
                                     .document().set(users).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {
-                                    startActivity(new Intent(SignupActivity.this,loginActivity.class));
+                                    startActivity(new Intent(SignupActivity.this, LoginActivity.class));
                                 }
                             });
                             Toast.makeText(SignupActivity.this,"Yeni hesap oluşturuldu.",Toast.LENGTH_SHORT).show();

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/purple2"
-    tools:context=".SettingsFragment">
+    tools:context=".MainFragment">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewMain"
@@ -41,9 +41,11 @@
 
             <EditText
                 android:id="@+id/secretBox"
-                android:layout_width="363dp"
-                android:layout_height="54dp"
-                android:layout_marginTop="20dp"
+                android:layout_width="336dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/textbox"
                 android:ems="10"
@@ -53,7 +55,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <Button
@@ -65,12 +67,7 @@
                     android:background="@drawable/button_style"
                     android:backgroundTint="#9C27B0"
                     android:drawableLeft="@drawable/link"
-                    android:drawingCacheQuality="auto"
-                    android:gravity="center"
                     android:padding="5dp"
-                    android:paddingStart="30dp"
-                    android:scrollbarAlwaysDrawHorizontalTrack="false"
-                    android:scrollbarAlwaysDrawVerticalTrack="false"
                     android:text="KATIL"
                     android:textColor="@color/white"
                     android:textSize="14sp" />
@@ -84,7 +81,6 @@
                     android:background="@drawable/button_style"
                     android:drawableLeft="@drawable/share"
                     android:padding="5dp"
-                    android:paddingStart="30dp"
                     android:text="Paylaş" />
             </LinearLayout>
 

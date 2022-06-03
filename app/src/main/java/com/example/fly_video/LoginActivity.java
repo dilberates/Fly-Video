@@ -16,7 +16,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class loginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     EditText email,password;
     Button login,sign;
@@ -29,7 +29,7 @@ public class loginActivity extends AppCompatActivity {
         initCompenent();
         auth=FirebaseAuth.getInstance();
         dialog=new ProgressDialog(this);
-        dialog.setMessage("Lütfen Bekleyiniz...");
+        dialog.setMessage("Litfen Bekleyiniz...");
 
 
         login.setOnClickListener(new View.OnClickListener() {
@@ -44,9 +44,9 @@ public class loginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         dialog.dismiss();
                         if(task.isSuccessful()){
-                        startActivity(new Intent(loginActivity.this,DashBoardActivity.class));
+                        startActivity(new Intent(LoginActivity.this,DashBoardActivity.class));
                         }else{
-                            Toast.makeText(loginActivity.this,task.getException().getLocalizedMessage(),Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this,task.getException().getLocalizedMessage(),Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -56,7 +56,7 @@ public class loginActivity extends AppCompatActivity {
         sign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(loginActivity.this,SignupActivity.class));
+                startActivity(new Intent(LoginActivity.this,SignupActivity.class));
             }
 
         });

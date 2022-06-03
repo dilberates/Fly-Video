@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/purple2"
     android:textAlignment="textStart"
-    tools:context=".loginActivity">
+    tools:context=".LoginActivity">
 
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
