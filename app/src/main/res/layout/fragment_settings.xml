@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/purple2"
-    tools:viewBindingIgnore="true"
     tools:context=".SettingsFragment">
 
     <androidx.cardview.widget.CardView
