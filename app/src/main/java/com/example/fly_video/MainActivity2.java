@@ -53,7 +53,8 @@ public class MainActivity2 extends AppCompatActivity {
 
     private void updateData(String id, String code) {
         db.collection("Codes").document(id)
-                .update("code",code)
+                .update("code",code,
+                        "search",code.toLowerCase())
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

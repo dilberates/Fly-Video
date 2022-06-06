@@ -7,7 +7,4 @@
     app:showAsAction="always"
     app:actionViewClass="android.widget.SearchView"
     ></item>
-    <item android:id="@+id/action_settings"
-        android:title="Ayarlar"
-        ></item>
 </menu>

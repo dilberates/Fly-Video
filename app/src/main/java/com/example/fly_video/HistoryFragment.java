@@ -1,9 +1,11 @@
 package com.example.fly_video;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +35,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
 
@@ -47,6 +51,7 @@ public class HistoryFragment extends Fragment {
     FirebaseFirestore db2=FirebaseFirestore.getInstance();
     String data;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -54,6 +59,7 @@ public class HistoryFragment extends Fragment {
         View root=binding.getRoot();
         lisbtn=binding.listele;
         mRecyclerView=binding.recyclerView;
+
         Bundle bundle=getArguments();
         if(bundle!=null) {
             data = bundle.getString("key");
@@ -121,6 +127,7 @@ public class HistoryFragment extends Fragment {
         Map<String,Object> doc=new HashMap<>();
         doc.put("id",id);
         doc.put("code",data);
+        doc.put("search",data.toLowerCase());
         db.collection("Codes").document(id).set(doc)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -137,8 +144,55 @@ public class HistoryFragment extends Fragment {
                 });
 
     }
+    private void searchData(String s) {
+        db.collection("Codes").whereEqualTo("search",s.toLowerCase())
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        modelList.clear();
+                        for(DocumentSnapshot doc:task.getResult()){
+                            Model model=new Model(doc.getString("id"),
+                                    doc.getString("code"));
+                            modelList.add(model);
+                        }
 
-   
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                    }
+                });
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+
+        MenuInflater inflater1= getActivity().getMenuInflater();
+        inflater1.inflate(R.menu.menu_search,menu);
+        MenuItem item=menu.findItem(R.id.action_search);
+        SearchView searchView=(SearchView)item.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                searchData(s);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                return false;
+            }
+        });
+                super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        return false;
+    }
 
     @Override
     public void onDestroyView(){
