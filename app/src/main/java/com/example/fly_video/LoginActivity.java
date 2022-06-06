@@ -45,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
                         dialog.dismiss();
                         if(task.isSuccessful()){
                         startActivity(new Intent(LoginActivity.this,DashBoardActivity.class));
+
                         }else{
                             Toast.makeText(LoginActivity.this,task.getException().getLocalizedMessage(),Toast.LENGTH_SHORT).show();
                         }

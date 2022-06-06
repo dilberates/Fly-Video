@@ -11,10 +11,7 @@
         android:id="@+id/history"
         android:icon="@drawable/history"
         android:title="Geçmiş" />
-    <item
-        android:id="@+id/settings"
-        android:icon="@drawable/settings"
-        android:title="Ayarlar" />
+
     <item
         android:id="@+id/out"
         android:icon="@drawable/logout"

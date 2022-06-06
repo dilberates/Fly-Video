@@ -2,6 +2,9 @@ package com.example.fly_video;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -20,11 +23,9 @@ public class DashBoardActivity extends AppCompatActivity  {
     FirebaseFirestore database;
     FirebaseUser user;
     DatabaseReference ref;
-    TextView name,mail;
     CardView mainCardView,settingCardView;
     BottomNavigationView navigationView;
     MainFragment mainFragment;
-    SettingsFragment settingsFragment;
     HistoryFragment historyFragment;
 
 
@@ -33,6 +34,7 @@ public class DashBoardActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dash_board);
         initComponents();
+
         auth=FirebaseAuth.getInstance();
         database=FirebaseFirestore.getInstance();
         navigationView.setSelectedItemId(R.id.mainPage);
@@ -53,6 +55,7 @@ public class DashBoardActivity extends AppCompatActivity  {
                                 .setPositiveButton("Evet", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
+                                        auth.signOut();
                                         startActivity(new Intent(DashBoardActivity.this, LoginActivity.class));
                                     }
                                 }).setNegativeButton("Hayır", new DialogInterface.OnClickListener() {
@@ -62,10 +65,7 @@ public class DashBoardActivity extends AppCompatActivity  {
                                     }
                                 }).show();
                         break;
-                    case R.id.settings:
-                        getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.body,settingsFragment).commit();
-                        return true;
+
 
                     case R.id.mainPage:
                         getSupportFragmentManager().beginTransaction()
@@ -74,6 +74,7 @@ public class DashBoardActivity extends AppCompatActivity  {
                     case R.id.history:
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.body,historyFragment).commit();
+
                         return true;
                 }
 
@@ -87,14 +88,9 @@ public class DashBoardActivity extends AppCompatActivity  {
     }
     private void initComponents() {
         navigationView=findViewById(R.id.bottomNavigationView);
-        settingsFragment=new SettingsFragment();
         historyFragment=new HistoryFragment();
         mainFragment=new MainFragment();
         mainCardView=findViewById(R.id.cardViewMain);
-        settingCardView=findViewById(R.id.cardViewSetting);
-        name=findViewById(R.id.fullNameTxt);
-        mail=findViewById(R.id.emailTxt);
-
 
     }
 

@@ -1,9 +1,12 @@
 package com.example.fly_video;
 
 import android.content.Intent;
+import android.icu.util.BuddhistCalendar;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,7 +56,12 @@ public class MainFragment extends Fragment {
                         .setWelcomePageEnabled(false)
                         .build();
                 JitsiMeetActivity.launch(getActivity(),options);
-
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                Bundle bundle=new Bundle();
+                bundle.putString("key",secretCode.getText().toString());
+                HistoryFragment historyFragment=new HistoryFragment();
+                historyFragment.setArguments(bundle);
+                transaction.replace(R.id.body,historyFragment).commit();
             }
         });
 
