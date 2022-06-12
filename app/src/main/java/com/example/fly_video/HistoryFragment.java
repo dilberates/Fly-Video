@@ -144,7 +144,7 @@ public class HistoryFragment extends Fragment {
                 });
 
     }
-    private void searchData(String s) {
+    /*private void searchData(String s) {
         db.collection("Codes").whereEqualTo("search",s.toLowerCase())
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -185,14 +185,13 @@ public class HistoryFragment extends Fragment {
                 return false;
             }
         });
-                super.onCreateOptionsMenu(menu, inflater);
+        super.onCreateOptionsMenu(menu, inflater);
     }
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         return false;
-    }
+    }*/
 
     @Override
     public void onDestroyView(){
